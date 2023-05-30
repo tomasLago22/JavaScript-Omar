@@ -56,19 +56,24 @@ switch(cuotas){
 
 
 let nombreProducto = prompt("Ingrese el nombre de su producto")
-let productosAComprar = parseInt(prompt("Ingrese numero de productos a comprar"))
+let productosAComprar = parseInt(prompt("Cuantas compras vas a realizar en el dia de hoy?"))
 let precioProducto = parseInt(prompt("Ingrese el precio del producto que quiere comprar"))
 
 console.log("Dia de decuentos")
-for(let i=0; i<=productosAComprar ; i++){
+for(let i=0; i <= productosAComprar ; i++){
     let resultadoDto = precioProducto  *0.20
     let descuento = precioProducto - resultadoDto
     alert(`obtuviste un descuento del 20% en ${nombreProducto} tu dinero a abonar es de ${descuento}`)
 
 }
       
-
-const carrito = []
+const productos = [
+  {id: 1, nombre: "Remera St Marie Prisoner", precio: 10000},
+  { id: 2, nombre: "Pantalon Waffle", precio: 15000 },
+  { id: 3, nombre: "Camisa XXL", precio: 12000 },
+  { id: 4, nombre: "Swater Polera Animal Print", precio: 11000 },
+  { id: 5, nombre: "Remera Thunder", precio: 9000 }
+];
 
 class Producto {
     constructor(id, nombre, precio) {
@@ -78,32 +83,27 @@ class Producto {
     }
   }
   
-  const producto1 = new Producto(1, "Remera St Marie Prisoner", 10000);
-  const producto6 = new Producto(6, "Campera Oversize Matelasse St Marie", 17000);
-
-  const productos = [
-    { id: 2, nombre: "Pantalon Waffle", precio: 15000 },
-    { id: 3, nombre: "Camisa XXL", precio: 12000 },
-    { id: 4, nombre: "Swater Polera Animal Print", precio: 11000 },
-    { id: 5, nombre: "Remera Thunder", precio: 9000 }
-  ];
   
-
+  const producto6 = new Producto(6, "Campera Oversize Matelasse St Marie", 17000);
+  productos.push(producto6)
   
   const botonAgregarCarrito = document.querySelectorAll('.botonAgregarCarrito');
 
   botonAgregarCarrito.forEach(boton => {
     boton.addEventListener('click', function() {
       const idProducto = parseInt(this.id.replace('agregar', ''));
-  
-    const producto = productos.find(item => item.id === idProducto);
-    carrito.push(producto)
-      
-      actualizarCarrito()
 
+    const producto = productos.find(item => item.id === idProducto);
+    
+    if (producto) {
+      carrito.push(producto);
+      actualizarCarrito();
+    }
     });
   });
   
+  const carrito = []
+
 
   /* 
     const agregarUno = document.querySelector("#agregarUno");
