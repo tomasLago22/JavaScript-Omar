@@ -1,18 +1,17 @@
-let registrarEmail = prompt("Ingrese su Email")
+let registrarEmail = prompt("Ingrese su Email");
 
-let registrarContrasenia = prompt("Ingrese su contraseña")
+let registrarContrasenia = prompt("Ingrese su contraseña");
 
-let confirmarContrasenia = prompt("Ingrese nuevamente su contraseña")
-
+let confirmarContrasenia = prompt("Ingrese nuevamente su contraseña");
 
 while (registrarContrasenia.length < 6) {
     alert("La contraseña debe tener al menos 6 caracteres. Inténtelo nuevamente.");
     registrarContrasenia = prompt("Ingrese su contraseña:");
 }
 
-while (registrarContrasenia !== confirmarContrasenia){
-    alert("Sus contraseñas no coinciden, intentelo de nuevo mas tarde.")
-    confirmarContrasenia = prompt("Confirme nuevamente su contraseña")
+while (registrarContrasenia !== confirmarContrasenia) {
+    alert("Sus contraseñas no coinciden. Inténtelo nuevamente.");
+    confirmarContrasenia = prompt("Confirme nuevamente su contraseña");
 }
 
 alert("Registro Exitoso!")
@@ -62,7 +61,7 @@ let precioProducto = parseInt(prompt("Ingrese el precio del producto que quiere 
 
 console.log("Dia de decuentos")
 for(let i=0; i<=productosAComprar ; i++){
-    let resultadoDto = precioProducto *0.20
+    let resultadoDto = precioProducto  *0.20
     let descuento = precioProducto - resultadoDto
     alert(`obtuviste un descuento del 20% en ${nombreProducto} tu dinero a abonar es de ${descuento}`)
 
@@ -100,6 +99,8 @@ class Producto {
     const producto = productos.find(item => item.id === idProducto);
     carrito.push(producto)
       
+      actualizarCarrito()
+
     });
   });
   
@@ -111,9 +112,10 @@ class Producto {
       carrito.push(producto1);
   }); */
   
-
+  function actualizarCarrito(){
   let totalCompra = carrito.reduce((accum, prod) => {
      return accum + prod.precio;
     }, 0);
   
   console.log(`El total del valor agregado a su Carrito es de ${totalCompra}`);
+  }
