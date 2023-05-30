@@ -116,4 +116,4 @@ class Producto {
      return accum + prod.precio;
     }, 0);
   
-  console.log(totalCompra);
+  console.log(`El total del valor agregado a su Carrito es de ${totalCompra}`);
