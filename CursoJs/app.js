@@ -1,3 +1,5 @@
+
+
 console.log("Bienvenidos a Js")
 
 //VARIABLES- Es como una cajita, en donde yo voy a poder incertar informacion 
@@ -624,7 +626,7 @@ const cliente1 = new Cliente ("Flavio", 29, "Eva peron 2032")
 const cliente2 = new Cliente ("Tomas", 20, "Mw2375")
 
 
-function crearObjetoCuenta (nombre, apellido,saldo){
+function CrearObjetoCuenta (nombre, apellido,saldo){
 
 this.nombreCuenta = nombre = prompt("Ingrese el nombre de la cuenta")
 this.apellidoCuenta = apellido = prompt("Ingrese el apellido para la cuenta")
@@ -636,5 +638,459 @@ this.mostrarCuenta = function (){
 }
 }
 
-const cuenta1 = new crearObjetoCuenta ()
+const cuenta1 = new CrearObjetoCuenta ()
 console.log(cuenta1.mostrarCuenta)
+
+
+//ARRAY
+
+// Un array es un tipo de dato que sirve para almacenar valores en forma de lista 
+
+// Los elementos del array tienen un indice que va desde el 0 
+
+const productos = [22, "Tomas", true , null]
+
+// Indico que en consola me muestre el indice 0, es decir el 22.
+console.log(productos[0])
+
+// Remplazar el valor de un elemento 
+// array[3] = 50
+
+// Para recorrer mi array puedo utilizar un For
+
+ for(let index = 0; index <= 3; index++){
+     console.log(array[index])
+ }
+
+
+ // Conocer cuantos elementos tiene mi array
+console.log(productos.length)
+
+// Agregar un valor al array
+// Por ejemplo para tener una funcion de "Agregar al carrito"
+
+productos.push("Otro elemento")
+
+console.log(productos)
+
+/*
+tu carrito es un [] (array vacio)
+al presionar el boton de "Agregar al carrito"
+vas a ejecutar, carrito.push()
+
+*/
+
+// Asi iniciara mi carrito
+const carrito = []
+
+// Al presionar el boton 
+carrito.push("Mi producto")
+
+//quiero agregar otro producto
+carrito.push("Otro producto")
+carrito.push("Tercer producto")
+
+// Si yo quiero agregar mi producto al comienzo del array
+carrito.unshift("PRIMER producto")
+
+//Si quiero eliminar el ultimo elemento de un array
+carrito.pop()
+//Si quiero eliminar el primero
+carrito.shift
+
+
+console.log(carrito)
+
+//Cuando es un ARRAY el nombre va en plurar
+//                  0         1       2        3
+const alumnos = ["Pablo", "Samuel", "Max", "Franco"]
+
+
+//Eliminar elementos de un array en cualquier posicion
+
+// En este caso va a eliminar desde el indice 1. 2 elementos
+nombres.splice(1,2)
+console.log(alumnos)
+
+//Une los elementos de un array con el signo que nosotros indiquemos
+console.log(alumnos.join(","))
+
+
+const alumnas = ["Karina", "Agustina"]
+
+//Se juntaran ambos arrays
+const totalAlumnos = alumnos.concat(alumnas)
+
+console.log(totalAlumnos)
+
+// Devolver una copia de una parte del array
+// Recibe dos parametros, Inicio y Final
+
+const otroArray = totalAlumnos.slice(1,3)
+// En este caso quedaran solo samuel y max, ya que corta una parte y se queda con ella
+
+// Para mostrar en que indice del array se encuentran
+console.log(alumnos.indexOf("Samuel"))
+
+//para saber si un elemento esta incluido en mi array, me devolvera un boleano
+
+console.log(alumnos.includes("gustavo"))
+
+alumnos.reverse()
+
+//invierte el orden de los elementos
+console.log(alumnos)
+
+
+//EJEMPLOS
+
+// Cargar datos y almacenarlos en un array
+
+const listaNombres = []
+let cantidad = 5
+
+do{
+
+    let entrada = prompt("Ingrese nombre")
+    listaNombres.push(entrada.toUpperCase)
+    console.log(listaNombres.length)
+
+}while(listaNombres.length != cantidad);
+
+const nuevaLista = listaNombres.concat(["Ana", "Ema"])
+
+console.log(listaNombres)
+
+const objeto1 = {
+    id: 1,
+    producto: "gaseosa"
+
+}
+//agregue otro objeto a mi array
+const array= [objeto1,{id: 2, producto : "papas"}]
+//agrego otro con el push
+array.push({id:3, producto: "Doritos"})
+
+
+//ARRAY DE OBJETOS
+const products = [
+{id:1 , product: "Producto 1"},
+{id:2 , product: "Producto 2"},
+{id:3 , product: "Producto 3"},
+]
+
+//FOR OF de Objetos
+
+for( const product of products){
+    console.log(product.id)
+    console.log(product.product)
+    
+}
+
+
+//FUNCIONES DE ORDEN SUPERIOR.
+
+/* Abstraccion --> Resumir un grupo complejo de instrucciones, bajo un apalabra clava 
+ (funcion) que sugiere cual es el problema a resolver por la misma */
+
+
+
+const pendientes = ["DOM", "Eventos", "Librerias"]
+
+//for each ()
+
+pendientes.forEach((p, i) =>{
+    console.log(`${i}: ${p}`)
+})
+
+console.log(pendientes)
+
+//MAP
+
+//A diferencia del for each crea un array nuevo
+
+//Se utiliza esto cuando yo quiero mostrar o enumerar elementos en la pantalla 
+pendientes.map((p,i)=>{
+    console.log(`${i} ${p}`)
+
+})
+
+const carrito22 = [
+    {nombre: "Producto A", precio: 1000},
+    {nombre: "Producto B", precio: 1500},
+    {nombre: "Producto C", precio: 2000}
+]
+
+//Reduce 
+
+//el reduce nos permite sumar
+//Por ej para ver el total de mi compra
+let totalCompra = carrito22.reduce((accum, prod)=>{
+    return accum + prod.precio
+}, 0)
+
+console.log(totalCompra)
+
+
+//Filter
+
+//En este caso filtraremos los precios q sean mayores a 1000
+let resultado22 = carrito22.filter ((producto22)=> producto22.precio>1000)
+
+//En este caso le indicamos que traiga todos los productos que sean distintos a producto b
+// let resultado22 = carrito22.filter ((producto22)=> producto22.nombre != "Producto B")
+
+
+// En este caso traemos los productos que tengan como nombre "Producto B"
+// let resultado22 = carrito22.filter ((producto22)=> producto22.nombre == "Producto B")
+
+
+
+//Similar al filter, existe el FIND
+
+//El find a diferencia del filter, traera el primero que encuentre con la caracteristica que nosotros pasamos
+//El filter traera todos con la caracteritica que pasamos
+const filtrado = carrito22.find((p)=>p.nombre === "Producto B")
+
+console.log(filtrado)
+
+//MATH 
+
+//Muestra el valor de PI
+console.log(Math.PI)
+//Se utiliza pra distintas operaciones matemticas, en este caso muestra el maximo
+//Ej podemos utilizarlo para ver quien hizo el maximo puntaje en un juego
+console.log(Math.max(25,3,6,7,8,89))
+
+//Para redondear
+
+let pi = Math.pi
+console.lof(pi)
+
+//redondeamos hacia arriba
+
+console.log(Math.ceil(pi))
+
+//Rendondeamos hacia abajo
+console.log(Math.floor(pi))
+
+
+//DATE
+//Para poder manipular fechas
+
+console.log(new Date())
+
+const hoy = new Date ()
+
+console.log(hoy.getFullYear())
+console.log(hoy.getMonth())
+
+
+
+
+
+
+// DOM
+
+//Javascript puede leer el Html
+
+let elemento = document
+
+elemento = document.body
+elemtmo = document.scripts
+
+/* 
+
+clases
+id
+tags 
+
+*/
+
+//METODO TRADICIONAL
+
+//Para yo poder acceder a un elemento de html, lo primero que hay que hace es capturar el elemento
+
+//De esta manera capturamos a todos los elementos que contengan esta clase 
+const navbar = document.getElementsByClassName("navbar")
+
+const contenedor = document.getElementsByClassName("container")
+
+const encabezados = document.getElementsByTagName("h2") 
+
+//Capturar por ID
+const identificador = document.getElementById("id")
+
+console.log(navbar)
+
+//Metodo moderno
+
+//LLAMAR POR CLASE
+const navegacion = document.querySelector(".navbar")
+
+console.log(navegacion)
+
+//LLAMAR POR ETIQUETA
+
+const titulos= document.querySelector("h2")
+
+
+//PARA QUE CAPTURE A TODOS LOS H2
+//Utilizo el All
+const titulo2 = document.querySelectorAll("h2")
+
+//CAPTURAR POR ID
+const idForm = document.querySelector("#id")
+
+
+//PARA MODIFICAR UN ELEMENTO 
+
+// 1) Capturar el elemento 
+
+//                                               Modifico el texto
+const modificando = document.querySelector("h2").textContent= "Mi Lista de productos"
+
+
+
+// Eliminar elemento del Dom
+
+const elementoAEliminar = document.querySelector("h5")
+elementoAEliminar.remove()
+
+console.log(elementoAEliminar)
+
+//AGREGAR ELEMENTOS AL DOM
+
+const agregarElemento = document.createElement("div")
+ 
+agregarElemento.innerHTML = "<h4> parrafo agregado </h4>"
+
+//Le agregamos un hijo, marcandole que agregue lo que hicimos en agregar elemento
+document.body.appendChild(agregarElemento)
+
+const listaVacia = document.querySelector(".lista-vacia")
+
+const otrosCursos = [
+    "DesarrolloWeb",
+    "JavaScript",
+    "Angular",
+    "NodeJs"
+]
+
+
+//Para injectar la informacion de "otrosCursos" en lista-vacia
+
+//recorremos, armo un curso por cada uno de los elementos del array
+for(let curso of otrosCursos){
+    //creo un elemento que es una lista
+    let listado = document.createElement("li")
+    //le injecto al listado lo que traiga curso
+    listado.innerHTML = curso
+    //agarro a lista vacia y le agrego el listado
+    listaVacia.appendChild(listado)
+}
+
+const cursosCoder = [
+    {id:1 ,titulo:"DesarrolloWeb" , precio: 1000},
+    {id:2 ,titulo: "JavaScript", precio:3000},
+    {id:3 ,titulo: "ReactJs", precio:5000}
+    
+
+
+]
+
+for (h of cursosCoder){
+    let contenedor = document.createElement("div")
+    contenedor.innerHTML=
+    `
+    <h3> Curso : ${h.titulo} </h3>
+    <p> Precio : ${h.precio} </p>
+
+    
+    `;
+
+    document.appendChild(contenedor)
+}
+
+
+
+//EVENTOS
+
+
+// 1) CAPTURAR EL ELEMENTO  ---- BOTON
+
+// 2) ASIGNAR UN EVENTO     ---- CLICK
+
+// 3) EJECUTAR UNA FUNCION  ---- FUNCTION VALIDAR(){}
+
+
+// EXISTEN DIFERENTES TIPOS DE EVENTOS.
+
+// MOUSE, TECLADO, CHANGE, INPUT, SUBMIT, OTROS
+
+// EJEMPLO
+
+// Capturo
+const navegacion22 = document.querySelector(".navbar") 
+
+// Llamar  a la variable
+
+// Asigno el escuchador , el evento, y la funcion
+navegacion22.addEventListener("click", ()=>{
+    console.log("Le diste al click")
+})
+
+/* navegacion22.addEventListener("dblckick", ()=>{
+    console.log("Le diste doble click") 
+    
+})
+    */
+
+
+// Eventos del teclado
+
+const inputName = document.querySelector("#inputName")
+
+inputName.addEventListener("keydown",()=>{
+    console.log("Escribiendo...")
+})
+
+inputName.addEventListener("blur",()=>{
+    console.log("Validando informacion")
+})
+
+inputName.addEventListener("keydown",()=>{
+    console.log("Escribiendo...")
+})
+
+// mostrara en el input, lo que nosotros escribamos
+inputName.addEventListener("input",(e)=>{
+    console.log(e.target.value)
+})
+
+// hago lo mismo pero cuando no escriba nada se ejecutra el if
+inputName.addEventListener("input", (e)=>{
+if(e.target.value === ""){
+    console.log("fallo la validacion")
+}
+
+})
+
+inputName.addEventListener("submit",(e)=>{
+    // Para prevenir que el evento se ejecute por defecto
+    e.preventDefault()
+    console.log("Buscando...")
+})
+
+//creando funciones 
+const formulario = document.querySelector("#formulario")
+const inputaName = document.querySelector("#inputName")
+const inputEmail = document.querySelector("#inputEmail")
+
+
+formulario.addEventListener("submit", validarFormulario)
+
+function validarFormulario(e){
+    e.preventDefault()
+    console.log(`Nombre del usuario ${inputName.value}`)
+}
