@@ -1,3 +1,5 @@
+
+
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 const listaDeProductos = document.querySelector('.listaDeProductos');
 const url = 'https://fakestoreapi.com/products';
@@ -12,7 +14,7 @@ fetch(url)
         <div class="productoApi">
           <img class="imagenApi" src="${producto.image}" alt="${producto.tittle}">
           <h4>${producto.title}</h4>
-          <p>Precio: $${producto.price}</p>
+          <p>Precio: ${producto.price} $</p>
           <button id="${producto.id}" class="botonAgregarCarrito">Agregar al Carrito</button>
         </div>
       `;
@@ -111,3 +113,5 @@ buscar.addEventListener("input", function() {
     iconoLupa.classList.remove("no-mostrar");
   }
 });
+
+
