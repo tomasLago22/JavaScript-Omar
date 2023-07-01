@@ -1,0 +1,11 @@
+ [
+    { "id": 1, "nombre": "Remera St Marie Prisoner", "precio": 10000, "img": "../img/RemeraPrissoner.jpg" },
+    { "id": 2, "nombre": "Pantalon Waffle", "precio": 15000, "img": "../img/pantalonWaffle.jpg" },
+    { "id": 3, "nombre": "Camisa XXL", "precio": 12000, "img": "../img/Camisa XXL.jpg" },
+    { "id": 4, "nombre": "Swater Polera Animal Print", "precio": 11000, "img": "../img/SweaterAnimalPrint.jpg" },
+    { "id": 5, "nombre": "Remera Thunder", "precio": 9000, "img": "../img/RemeraThunder.jpg" },
+    { "id": 6, "nombre":  "Campera Oversize Matelasse St Marie", "precio": 17000, "img": "../img/CamperaOversize.jpg" }
+    
+  ]
+
+ 

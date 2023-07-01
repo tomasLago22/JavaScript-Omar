@@ -7,7 +7,7 @@
 ----
 
 
-**Condicionales,funciones y ciclos**
+**PROYECTO FINAL**
 
 ```Javascript
 function calcularInteres (cuotas, valor){
